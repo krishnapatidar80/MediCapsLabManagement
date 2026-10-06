@@ -11,10 +11,10 @@ FROM eclipse-temurin:21-jre
 
 WORKDIR /app
 
-COPY --from=build /app/target/*.jar app.jar
+COPY --from=build /app/target/*.war app.war
 
 EXPOSE 10000
 
 ENV PORT=10000
 
-ENTRYPOINT ["sh", "-c", "java -jar app.jar --server.port=${PORT} --server.address=0.0.0.0"]
+ENTRYPOINT ["sh", "-c", "java -jar app.war --server.port=${PORT} --server.address=0.0.0.0"]
