@@ -1,0 +1,962 @@
+/* =========================================================
+   MEDI-CAPS UNIVERSITY
+   LABORATORY MANAGEMENT SYSTEM
+   COMMON CSS
+   ========================================================= */
+
+:root {
+    --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
+
+    --sidebar-bg: #0f172a;
+    --sidebar-hover: #1e293b;
+
+    --body-bg: #f8fafc;
+    --white: #ffffff;
+
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+
+    --border-color: #e2e8f0;
+
+    --success-color: #16a34a;
+    --danger-color: #dc2626;
+
+    --sidebar-width: 270px;
+    --header-height: 82px;
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+
+    --transition: 0.25s ease;
+}
+
+
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    background: var(--body-bg);
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
+
+.app-layout {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.main-content {
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: margin-left var(--transition);
+}
+
+.page-content {
+    flex: 1;
+    padding: 30px;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: var(--sidebar-width);
+    height: 100vh;
+
+    background: var(--sidebar-bg);
+    color: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 1000;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    box-shadow: 4px 0 20px rgba(15, 23, 42, 0.08);
+
+    transition: transform var(--transition);
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   SIDEBAR BRAND
+   ========================================================= */
+
+.sidebar-brand {
+    height: var(--header-height);
+
+    padding: 0 22px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    flex-shrink: 0;
+}
+
+.brand-logo {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary-color);
+
+    color: #ffffff;
+
+    font-size: 19px;
+
+    flex-shrink: 0;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-text h2 {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.brand-text span {
+    margin-top: 3px;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   SIDEBAR NAVIGATION
+   ========================================================= */
+
+.sidebar-nav {
+    flex: 1;
+    padding: 20px 13px;
+}
+
+.nav-section-title {
+    padding: 0 12px;
+
+    margin: 18px 0 8px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    color: #64748b;
+}
+
+.nav-section-title:first-child {
+    margin-top: 0;
+}
+
+.nav-item {
+    min-height: 46px;
+
+    padding: 0 13px;
+
+    margin-bottom: 4px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    border-radius: 9px;
+
+    color: #cbd5e1;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: var(--transition);
+}
+
+.nav-item i {
+    width: 19px;
+
+    text-align: center;
+
+    font-size: 15px;
+
+    color: #94a3b8;
+}
+
+.nav-item span:not(.ai-badge) {
+    flex: 1;
+}
+
+.nav-item:hover {
+    background: var(--sidebar-hover);
+    color: #ffffff;
+
+    transform: translateX(2px);
+}
+
+.nav-item:hover i {
+    color: #ffffff;
+}
+
+.nav-item.active {
+    background: var(--primary-color);
+    color: #ffffff;
+
+    box-shadow: 0 5px 14px rgba(37, 99, 235, 0.25);
+}
+
+.nav-item.active i {
+    color: #ffffff;
+}
+
+
+/* AI badge */
+
+.ai-badge {
+    padding: 3px 6px;
+
+    border-radius: 5px;
+
+    background: rgba(255, 255, 255, 0.14);
+
+    color: #bfdbfe;
+
+    font-size: 8px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   SIDEBAR BOTTOM
+   ========================================================= */
+
+.sidebar-bottom {
+    padding: 14px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    flex-shrink: 0;
+}
+
+.sidebar-help {
+    padding: 12px;
+
+    margin-bottom: 9px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.help-icon {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(37, 99, 235, 0.18);
+
+    color: #93c5fd;
+}
+
+.help-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.help-content strong {
+    font-size: 11px;
+    color: #e2e8f0;
+}
+
+.help-content span {
+    font-size: 9px;
+    color: #64748b;
+}
+
+.logout-item {
+    min-height: 43px;
+
+    padding: 0 13px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    border-radius: 9px;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+
+    transition: var(--transition);
+}
+
+.logout-item:hover {
+    background: rgba(220, 38, 38, 0.12);
+    color: #fca5a5;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.top-header {
+    height: var(--header-height);
+
+    padding: 0 30px;
+
+    background: var(--white);
+
+    border-bottom: 1px solid var(--border-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 900;
+}
+
+.header-left {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+}
+
+.page-information {
+    min-width: 0;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 3px;
+
+    font-size: 10px;
+
+    color: var(--text-muted);
+}
+
+.breadcrumb-arrow {
+    font-size: 7px;
+}
+
+.breadcrumb-current {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.page-title {
+    font-size: 20px;
+    line-height: 1.25;
+    font-weight: 700;
+}
+
+.page-subtitle {
+    margin-top: 2px;
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.mobile-menu-btn {
+    width: 40px;
+    height: 40px;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: var(--text-primary);
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   HEADER RIGHT
+   ========================================================= */
+
+.header-right {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+
+/* Search */
+
+.header-search {
+    width: 220px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 0 10px 0 13px;
+
+    background: #f8fafc;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 9px;
+}
+
+.header-search i {
+    color: #94a3b8;
+}
+
+.header-search input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: var(--text-primary);
+
+    font-size: 12px;
+}
+
+.search-shortcut {
+    padding: 3px 5px;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 4px;
+
+    background: #ffffff;
+
+    color: #94a3b8;
+
+    font-size: 8px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   NOTIFICATION
+   ========================================================= */
+
+.header-icon-btn {
+    position: relative;
+
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #64748b;
+
+    font-size: 15px;
+
+    transition: var(--transition);
+}
+
+.header-icon-btn:hover {
+    background: #eff6ff;
+    color: var(--primary-color);
+}
+
+.notification-badge {
+    position: absolute;
+
+    top: -4px;
+    right: -4px;
+
+    min-width: 16px;
+    height: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #ffffff;
+
+    border-radius: 20px;
+
+    background: var(--danger-color);
+
+    color: #ffffff;
+
+    font-size: 7px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   USER PROFILE
+   ========================================================= */
+
+.user-profile {
+    height: 44px;
+
+    padding: 3px 4px 3px 5px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+}
+
+.user-profile:hover {
+    background: #f8fafc;
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #dbeafe;
+
+    color: #1d4ed8;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.user-information {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-information strong {
+    font-size: 11px;
+}
+
+.user-information span {
+    margin-top: 1px;
+
+    font-size: 9px;
+
+    color: var(--text-secondary);
+}
+
+.user-dropdown-icon {
+    color: #94a3b8;
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.main-footer {
+    min-height: 58px;
+
+    padding: 15px 30px;
+
+    background: #ffffff;
+
+    border-top: 1px solid var(--border-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: var(--text-secondary);
+
+    font-size: 10px;
+}
+
+.footer-left strong {
+    color: var(--text-primary);
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.footer-status {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    color: var(--success-color);
+
+    font-weight: 600;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--success-color);
+}
+
+.footer-divider {
+    width: 1px;
+    height: 14px;
+
+    background: var(--border-color);
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    :root {
+        --sidebar-width: 235px;
+    }
+
+    .header-search {
+        width: 180px;
+    }
+
+    .user-information {
+        display: none;
+    }
+
+    .user-dropdown-icon {
+        display: none;
+    }
+
+    .page-content {
+        padding: 24px;
+    }
+
+    .top-header {
+        padding: 0 24px;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    :root {
+        --sidebar-width: 270px;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .top-header {
+        min-height: var(--header-height);
+
+        height: auto;
+
+        padding: 14px 18px;
+    }
+
+    .page-title {
+        font-size: 17px;
+    }
+
+    .page-subtitle {
+        display: none;
+    }
+
+    .header-search {
+        display: none;
+    }
+
+    .user-profile {
+        display: none;
+    }
+
+    .page-content {
+        padding: 18px;
+    }
+
+    .main-footer {
+        padding: 14px 18px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .breadcrumb {
+        display: none;
+    }
+
+    .page-title {
+        font-size: 16px;
+    }
+
+    .page-content {
+        padding: 15px;
+    }
+}
+
+/* =========================================================
+   GLOBAL SIDEBAR + MAIN CONTENT FIX
+   ========================================================= */
+
+.app-layout {
+    display: flex !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+}
+
+.sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 280px !important;
+    height: 100vh !important;
+    z-index: 1000 !important;
+}
+
+.main-area {
+    margin-left: 280px !important;
+    width: calc(100% - 280px) !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.main-area > .page-content {
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .main-area {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+}
+
+
+
+
+/* =========================================================
+   MEDI-CAPS UNIVERSITY LOGO - FINAL
+   ========================================================= */
+
+.sidebar .medicaps-brand {
+    width: 100% !important;
+    height: 105px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 10px 15px !important;
+    margin: 0 !important;
+
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+
+    background: transparent !important;
+}
+
+.sidebar .medicaps-brand .medicaps-university-logo {
+    display: block !important;
+
+    width: 220px !important;
+    height: 78px !important;
+
+    max-width: 220px !important;
+    max-height: 78px !important;
+
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    margin: 0 auto !important;
+    padding: 0 !important;
+
+    object-fit: contain !important;
+    object-position: center !important;
+
+    position: static !important;
+    float: none !important;
+    transform: none !important;
+}
+
+/* Remove any old brand styling */
+.sidebar .medicaps-brand .brand-logo,
+.sidebar .medicaps-brand .brand-text {
+    display: none !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .sidebar .medicaps-brand {
+        height: 90px !important;
+        padding: 8px 12px !important;
+    }
+
+    .sidebar .medicaps-brand .medicaps-university-logo {
+        width: 195px !important;
+        height: 68px !important;
+
+        max-width: 195px !important;
+        max-height: 68px !important;
+    }
+}
+
